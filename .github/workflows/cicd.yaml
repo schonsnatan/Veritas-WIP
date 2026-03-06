@@ -32,7 +32,7 @@ jobs:
               run: poetry run pytest tests -v
 
             - name: Build the documentation
-              run: poetry run mkdocs -f docs/mkdocs.yml
+              run: poetry run mkdocs build -f docs/mkdocs.yml
             
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
