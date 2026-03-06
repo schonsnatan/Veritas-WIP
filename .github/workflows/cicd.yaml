@@ -31,14 +31,5 @@ jobs:
             - name: Run my test routine with Poetry
               run: poetry run pytest tests -v
 
-            - name: Build the documentation
-              run: poetry run mkdocs build -f docs/mkdocs.yml
-            
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
-              with:
-                path: './site'
-
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4
+            - name: Deploy documentation
+              run: poetry run mkdocs gh-deploy --force

@@ -1,5 +1,4 @@
 site_name: Veritas
-site_description: A structured RAG-based Mental Wellness Orchestrator
 
 theme:
   name: material
