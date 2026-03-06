@@ -10,6 +10,7 @@ disable=
     C0116, # missing-function-docstring
     R0903, # too-few-public-methods (Common when using Strategy Pattern/Adapters)
     W0511, # fixme (Allows TODOs during development)
+    W0611, # unused-import
 
 [FORMAT]
 # Align with Black formatter standards
