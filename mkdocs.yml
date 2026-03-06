@@ -1,4 +1,5 @@
 site_name: Veritas
+docs_dir: docs
 
 theme:
   name: material
