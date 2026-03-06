@@ -1,0 +1,21 @@
+repos:
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args:
+          [
+            "-rn", # Only display messages
+            "-sn", # Don't display the score
+            "--rcfile=.pylintrc", # Link to your config file
+            "--load-plugins=pylint.extensions.docparams", # Load an extension
+          ]
+      - id: requirements
+        name: requirements
+        entry: bash -c 'poetry export -f requirements.txt --output requirements.txt --without-hashes && git add requirements.txt'
+        language: system
+        pass_filenames: false
+        stages: [commit]

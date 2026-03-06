@@ -1,0 +1,36 @@
+[MAIN]
+# Load extensions for better parameter checking
+load-plugins=pylint.extensions.docparams
+
+[MESSAGES CONTROL]
+# Disable "noisy" checks that often clutter clean architecture
+disable=
+    C0114, # missing-module-docstring (Not needed for every internal file)
+    C0115, # missing-class-docstring
+    C0116, # missing-function-docstring
+    R0903, # too-few-public-methods (Common when using Strategy Pattern/Adapters)
+    W0511, # fixme (Allows TODOs during development)
+
+[FORMAT]
+# Align with Black formatter standards
+max-line-length=88
+
+[DESIGN]
+# Encourage modularity by limiting class/function size
+max-args=5
+max-attributes=7
+max-bool-expr=5
+max-branches=12
+max-locals=15
+max-parents=7
+max-public-methods=20
+max-returns=6
+max-statements=50
+
+[BASIC]
+# Ensure naming conventions follow PEP 8
+class-const-naming-style=UPPER_CASE
+class-naming-style=PascalCase
+function-naming-style=snake_case
+method-naming-style=snake_case
+variable-naming-style=snake_case

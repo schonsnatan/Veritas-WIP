@@ -1,0 +1,44 @@
+name: cicd
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download Repository
+              uses: actions/checkout@v4
+
+            - name: Install Python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.14.2'
+
+            - name: Install Poetry with pip
+              run: pip install poetry
+
+            - name: Install dependencies with poetry
+              run: poetry install
+
+            - name: Run my test routine with Poetry
+              run: poetry run pytest tests -v
+
+            - name: Build the documentation
+              run: poetry run mkdocs build
+            
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                path: './site'
+
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
