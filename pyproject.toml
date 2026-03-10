@@ -25,7 +25,8 @@ requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.taskipy.tasks]
-test = "pytest -v"
+test = "pytest --cov=app --cov-report=term-missing"
+test-html = "pytest --cov=app --cov-report=html"
 run = """
 python app/main.py
 """
@@ -33,3 +34,7 @@ doc = "mkdocs serve"
 
 [tool.poetry]
 package-mode = false
+[dependency-groups]
+dev = [
+    "pytest-cov (>=7.0.0,<8.0.0)"
+]
