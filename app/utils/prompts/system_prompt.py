@@ -1,3 +1,7 @@
+"""
+System prompts for Veritas chatbot interactions.
+"""
+
 class CustomSystemPrompts():
 
     @staticmethod
