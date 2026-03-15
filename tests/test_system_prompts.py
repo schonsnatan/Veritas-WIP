@@ -2,8 +2,8 @@
 Tests for system prompt generation.
 """
 
-import pytest
-from app.utils.prompts.system_prompt import prompts, CustomSystemPrompts
+from app.utils.prompts.system_prompt import CustomSystemPrompts, prompts
+
 
 class TestCustomSystemPrompts:
     """Test suite for system prompt generation."""

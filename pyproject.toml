@@ -14,9 +14,9 @@ dependencies = [
     "mkdocstrings[python] (>=1.0.3,<2.0.0)",
     "taskipy (>=1.14.1,<2.0.0)",
     "pytest (>=9.0.2,<10.0.0)",
-    "pylint (>=4.0.5,<5.0.0)",
     "pre-commit (>=4.5.1,<5.0.0)",
-    "poetry-plugin-export (>=1.10.0,<2.0.0)"
+    "poetry-plugin-export (>=1.10.0,<2.0.0)",
+    "pydantic (>=2.12.5,<3.0.0)"
 ]
 
 
@@ -36,5 +36,26 @@ doc = "mkdocs serve"
 package-mode = false
 [dependency-groups]
 dev = [
-    "pytest-cov (>=7.0.0,<8.0.0)"
+    "pytest-cov (>=7.0.0,<8.0.0)",
+    "ruff (>=0.15.6,<0.16.0)"
 ]
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
